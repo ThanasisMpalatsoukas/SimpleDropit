@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Drag & Drop Plugin - My First Plugin</title>
+    <link rel="stylesheet" href="assets/css/simpledropit.min.css">
+    <link rel="stylesheet" href="assets/css/demo.min.css">
+</head>
+<body>
+    <div class="container">
+        <input type="file" name="files[]" class="sdnd-fileinput" id="sdd-fileinput1" multiple>
+        <div style="margin-top: 20px;"></div>
+        <div class="sdd-input-file-box">
+            <div class="sdd-input-file-box-wrapper">
+                <div class="sdd-input-file-label">
+                    <span class="sdd-box-dragndrop">Drag &amp; Drop file or&nbsp;</span>
+                    <span class="sdd-box-file-name"></span>
+                    <label class="sdd-label">Browse <span class="sdd-box-browse-file">File</span></label>
+                    <input type="file" name="files[]" class="sdnd-fileinput" id="sdd-fileinput2" multiple>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="simpledropit.min.js"></script>
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
