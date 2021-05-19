@@ -39,3 +39,10 @@ Thumbs.db
 # Folders to ignore
 /js/coverage/
 /node_modules/
+/test/
+
+# Project specific
+dist/**/demo.css
+dist/**/demo.min.css
+# bundle.js
+# bundle.js.map

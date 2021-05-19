@@ -1,20 +1,19 @@
 # SimpleDropit
-A drag-n-drop vanilla js library, done simple, easy to use across modern browsers.
+A simple drag-n-drop file upload vanilla js library, easy to use across modern browsers.
 
 ## 1. Documentation
 ### Usage
+
 You start SimpleDropit manually:
+
 ```js
-
 new SimpleDropit(document.getElementById('myInput'));
-
 ```
 
 If you want to use jQuery:
+
 ```js
-
 new SimpleDropit($('#myInput')[0]);
-
 ```
 
 ## 2. Browser support
