@@ -1,0 +1,63 @@
+@import '~bootstrap/scss/bootstrap';
+
+pre {
+    position: relative;
+
+    code.hljs {
+        display: block;
+        padding: 1rem;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+}
+
+.container {
+    max-width: 1080px;
+}
+
+a {
+    .sd-s-title & {
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    .sd-s-title:hover & {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+.sd-btn-copy {
+    visibility: hidden;
+    opacity: 0;
+
+    &.btn {
+        position: absolute;
+        right: .25rem;
+        top: .25rem;
+        padding: .125rem .25rem;
+
+        &:focus {
+            box-shadow: none;
+        }
+    }
+
+    pre:hover & {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+.sd-aside {
+    .btn {
+        padding: .25rem .5rem;
+        border: 0;
+        font-size: .875rem;
+
+        &:hover,
+        &:focus {
+            color: $primary;
+            background-color: rgba($primary, .1);
+        }
+    }
+}
