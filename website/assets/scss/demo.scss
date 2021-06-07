@@ -28,6 +28,17 @@ a {
     }
 }
 
+.sd-link {
+    text-decoration: none;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.github-logo {
+    margin-right: .25rem;
+}
+
 .sd-btn-copy {
     visibility: hidden;
     opacity: 0;
