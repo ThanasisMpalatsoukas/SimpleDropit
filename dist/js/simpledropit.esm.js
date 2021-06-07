@@ -147,11 +147,11 @@ var SimpleDropit = /*#__PURE__*/function () {
       this.supportedLabelEl.classList.add(this.classNames.supportedLabelEl);
       this.filenameEl.classList.add(this.classNames.filenameEl);
       this.browseLabelEl.classList.add(this.classNames.browseLabelEl);
-      this.el.classList.add('sdd-file-input', 'sdd-file-input-hide');
+      this.el.classList.add('sd-file-input', 'sd-file-input-hide');
       this.supportedLabelEl.innerHTML = this.options.supportedLabel + '&nbsp;';
       this.labelWrapperEl.appendChild(this.supportedLabelEl);
       this.labelWrapperEl.appendChild(this.filenameEl);
-      this.browseLabelEl.innerHTML = 'Browse <span class="sdd-box-browse-file">File</span></span>';
+      this.browseLabelEl.innerHTML = 'Browse <span class="sd-box-browse-file">File</span></span>';
       this.labelWrapperEl.appendChild(this.browseLabelEl);
       this.labelWrapperEl.appendChild(elClone);
       this.boxWrapperEl.appendChild(this.labelWrapperEl);
@@ -162,7 +162,7 @@ var SimpleDropit = /*#__PURE__*/function () {
     }
 
     if (this.isAdvancedUpload) {
-      this.boxEl.classList.add('sdd-advanced-upload');
+      this.boxEl.classList.add('sd-advanced-upload');
     }
   };
 
@@ -191,19 +191,25 @@ var SimpleDropit = /*#__PURE__*/function () {
     el.innerText = files.length > 1 ? files.length + ' files selected / ' : files[0].name + ' / ';
   };
 
+  SimpleDropit.validateExtension = function validateExtension(files) {
+    this.options.accept;
+    files.forEach(function (file) {});
+  };
+
   return SimpleDropit;
 }();
 
 SimpleDropit.instances = new WeakMap();
 SimpleDropit.defaultOptions = {
+  acceptedFiles: '',
   supportedLabel: 'Drag & Drop file or',
   classNames: {
-    boxEl: 'sdd-input-file-box',
-    boxWrapperEl: 'sdd-input-file-box-wrapper',
-    labelWrapperEl: 'sdd-input-file-label',
-    supportedLabelEl: 'sdd-box-dragndrop',
-    filenameEl: 'sdd-box-file-name',
-    browseLabelEl: 'sdd-label'
+    boxEl: 'sd-box',
+    boxWrapperEl: 'sd-box-wrapper',
+    labelWrapperEl: 'sd-label',
+    supportedLabelEl: 'sd-box-dragndrop',
+    filenameEl: 'sd-box-file-name',
+    browseLabelEl: 'sd-label'
   }
 };
 

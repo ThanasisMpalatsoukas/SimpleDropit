@@ -1,17 +1,17 @@
-.sdd-file-input-hide {
+.sd-hide {
   position: absolute;
   opacity: 0;
   visibility: hidden;
 }
 
-.sdd-box-dragndrop,
-.sdd-box-uploading,
-.sdd-box-success,
-.sdd-box-error {
+.sd-box-dragndrop,
+.sd-box-uploading,
+.sd-box-success,
+.sd-box-error {
   display: none;
 }
 
-.sdd-input-file-box {
+.sd-box {
   background-color: #ffffff;
   position: relative;
   padding: 25px 20px;
@@ -22,53 +22,53 @@
   line-height: 18px;
 }
 
-.sdd-input-file-box input[type="file"] {
+.sd-box input[type="file"] {
   position: absolute;
   z-index: -1;
   opacity: 0;
 }
 
-.sdd-input-file-label {
+.sd-label {
   font-family: inherit;
   font-size: inherit;
 }
 
-.sdd-input-file-label label {
+.sd-label label {
   color: #10509A;
   cursor: pointer;
   margin-bottom: 0;
   font-weight: 600;
 }
 
-.sdd-input-file-label label:hover, .sdd-input-file-label label:focus {
+.sd-label label:hover, .sd-label label:focus {
   color: #0c3e77;
 }
 
-.sdd-input-file-box.is-dragover {
+.sd-box.is-dragover {
   outline: 2px dashed #c2c2c2;
   outline-offset: -10px;
 }
 
-.sdd-input-file-box.is-uploading .sdd-input-file-box-wrapper {
+.sd-box.is-uploading .sd-box-wrapper {
   visibility: none;
 }
 
-.sdd-input-file-box.is-uploading .sdd-box-uploading {
+.sd-box.is-uploading .sd-box-uploading {
   display: block;
 }
 
-.sdd-input-file-box.sdd-advanced-upload .sdd-box-browse-file {
+.sd-box.sd-advanced-upload .sd-box-browse-file {
   display: none;
 }
 
-.sdd-input-file-box.sdd-advanced-upload .sdd-box-dragndrop {
+.sd-box.sd-advanced-upload .sd-box-dragndrop {
   display: inline;
 }
 
-.sdd-input-file-box.sdd-advanced-upload.is-dropped {
+.sd-box.sd-advanced-upload.is-dropped {
   border-color: #10509A;
 }
 
-.sdd-input-file-box.sdd-advanced-upload.is-dropped .sdd-box-dragndrop {
+.sd-box.sd-advanced-upload.is-dropped .sd-box-dragndrop {
   display: none;
 }
