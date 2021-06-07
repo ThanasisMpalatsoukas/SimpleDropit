@@ -146,7 +146,7 @@ class SimpleDropit {
     }
 
     static defaultOptions = {
-        supportedLabel: 'Drag & Drop file or',
+        supportedLabel: 'Drop file here /',
         classNames: {
             boxEl: 'sd-box',
             boxWrapperEl: 'sd-box-wrapper',
