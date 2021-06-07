@@ -191,18 +191,12 @@ var SimpleDropit = /*#__PURE__*/function () {
     el.innerText = files.length > 1 ? files.length + ' files selected / ' : files[0].name + ' / ';
   };
 
-  SimpleDropit.validateExtension = function validateExtension(files) {
-    this.options.accept;
-    files.forEach(function (file) {});
-  };
-
   return SimpleDropit;
 }();
 
 SimpleDropit.instances = new WeakMap();
 SimpleDropit.defaultOptions = {
-  acceptedFiles: '',
-  supportedLabel: 'Drag & Drop file or',
+  supportedLabel: 'Drop file here /',
   classNames: {
     boxEl: 'sd-box',
     boxWrapperEl: 'sd-box-wrapper',
