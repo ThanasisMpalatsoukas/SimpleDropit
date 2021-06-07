@@ -40,6 +40,7 @@ Thumbs.db
 /js/coverage/
 /node_modules/
 /test/
+/demo/
 
 # Project specific
 dist/**/demo.css
