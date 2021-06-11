@@ -27,7 +27,7 @@ export default [
         },
         plugins: [
             babel({
-                exclude: ['/**/node_moduels/**/']
+                exclude: ['/**/node_modules/**/']
             }),
             resolve(),
             commonjs(),
@@ -52,7 +52,7 @@ export default [
         },
         plugins: [
             babel({
-                exclude: ['/**/node_moduels/**/']
+                exclude: ['/**/node_modules/**/']
             }),
             license(license_banner)
         ]
@@ -78,7 +78,7 @@ export default [
         ],
         plugins: [
             babel({
-                exclude: ['/**/node_moduels/**/']
+                exclude: ['/**/node_modules/**/']
             }),
             resolve(),
             commonjs(),
@@ -94,7 +94,7 @@ export default [
         },
         plugins: [
             babel({
-                exclude: ['/**/node_moduels/**/']
+                exclude: ['/**/node_modules/**/']
             }),
             resolve(),
             commonjs,
