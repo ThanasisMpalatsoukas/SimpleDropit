@@ -2,8 +2,11 @@
 
 .sd-hide {
     position: absolute;
+    width: 0;
+    height: 0;
+    z-index: -1;
     opacity: 0;
-    visibility: hidden;;
+    visibility: hidden;
 }
 
 .sd-box-dragndrop,
@@ -25,8 +28,11 @@
 
     input[type="file"] {
         position: absolute;
+        width: 0;
+        height: 0;
         z-index: -1;
         opacity: 0;
+        visibility: hidden;
     }
 }
 
