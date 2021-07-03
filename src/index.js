@@ -1,6 +1,7 @@
 import {getElementDocument, hasClass, triggerClick } from './helpers';
+import SimpleDropitMethods from './methods';
 
-class SimpleDropit {
+class SimpleDropit extends SimpleDropitMethods {
 
     /**
      * SimpleDropit Object
@@ -8,20 +9,19 @@ class SimpleDropit {
      * @param {Object} options User options
      */
     constructor(selector, options) {
+        super();
         try {
             if(typeof selector === 'string') {
-                throw new Error('Invalid Element Object.');
+                throw new Error('Invalid Element Object');
             } else if(typeof selector === 'object' && selector !== null) {
                 this.el = selector;
             } else {
-                throw new Error('Element Object does not exists.');
+                throw new Error('Element Object does not exists');
             }
         } catch(error) {
             console.error(error.name + ': ' + error.message);
             return;
         }
-
-        
 
         this.options = { ...SimpleDropit.defaultOptions, ...options };
         this.classNames = {
@@ -41,22 +41,38 @@ class SimpleDropit {
     };
 
     onChange = (event) => {
+        if(!SimpleDropit.isFiles(event)) {
+            return;
+        }
+        SimpleDropit.showFiles(this.filenameEl, event.target.files)
         this.boxEl.classList.add('is-dropped');
-        SimpleDropit.showFiles(this.filenameEl, event.target.files);
     };
 
     dragIn = (event) => {
+        // Check the dragged elements are Files
+        if(!SimpleDropit.isFiles(event)) {
+            return;
+        }
         if(!hasClass(this.boxEl, 'is-dragover')) this.boxEl.classList.add('is-dragover');
     };
 
     dragOut = (event) => {
+        // Check the dragged elements are Files
+        if(!SimpleDropit.isFiles(event)) {
+            return;
+        }
         if(hasClass(this.boxEl, 'is-dragover')) this.boxEl.classList.remove('is-dragover');
     };
 
     drop = (event) => {
-        this.boxEl.classList.add('is-dropped');
+        // Check the dropped elements are Files
+        if(!SimpleDropit.isFiles(event)) {
+            return;
+        }
+        
         this.droppedFiles = event.dataTransfer.files;
         SimpleDropit.showFiles(this.filenameEl, this.droppedFiles);
+        this.boxEl.classList.add('is-dropped');
     };
 
     preventEventPropagation = (event) => {
@@ -142,7 +158,14 @@ class SimpleDropit {
     }
 
     static showFiles(el, files) {
-        el.innerText = files.length > 1 ? (files.length + ' files selected / ') : files[ 0 ].name + ' / ';
+        let fileName = files[0].name;
+
+        if(fileName !== '' && fileName !== undefined) {
+            el.innerText = files.length > 1 ? (files.length + ' files selected / ') : fileName + ' / ';
+            return true;
+        } else {
+            return false;
+        }
     }
 
     static defaultOptions = {
