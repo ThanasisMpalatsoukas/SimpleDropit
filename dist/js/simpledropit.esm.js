@@ -25,6 +25,30 @@ function _extends() {
   return _extends.apply(this, arguments);
 }
 
+function _inheritsLoose(subClass, superClass) {
+  subClass.prototype = Object.create(superClass.prototype);
+  subClass.prototype.constructor = subClass;
+
+  _setPrototypeOf(subClass, superClass);
+}
+
+function _setPrototypeOf(o, p) {
+  _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
+    o.__proto__ = p;
+    return o;
+  };
+
+  return _setPrototypeOf(o, p);
+}
+
+function _assertThisInitialized(self) {
+  if (self === void 0) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }
+
+  return self;
+}
+
 // Helper functions
 function getElementDocument(element) {
   if (!element || !element.ownerDocument) {
@@ -50,67 +74,112 @@ function triggerClick(element) {
   }
 }
 
-var SimpleDropit = /*#__PURE__*/function () {
+var SimpleDropitMethods = /*#__PURE__*/function () {
+  function SimpleDropitMethods() {}
+
+  SimpleDropitMethods.isFiles = function isFiles(event) {
+    var r = false;
+
+    if (event.dataTransfer.types) {
+      event.dataTransfer.types.forEach(function (file, index) {
+        if (file === "Files" || file === "application/x-moz-file") {
+          r = true;
+        }
+      });
+    }
+
+    return r;
+  };
+
+  return SimpleDropitMethods;
+}();
+
+var SimpleDropit = /*#__PURE__*/function (_SimpleDropitMethods) {
+  _inheritsLoose(SimpleDropit, _SimpleDropitMethods);
+
   /**
    * SimpleDropit Object
    * @param {String} selector Element object
    * @param {Object} options User options
    */
   function SimpleDropit(selector, options) {
-    var _this = this;
+    var _this;
 
-    this.isAdvancedUpload = function () {
+    _this = _SimpleDropitMethods.call(this) || this;
+
+    _this.isAdvancedUpload = function () {
       var div = document.createElement('div');
       return ('draggable' in div || 'ondragstart' in div && 'ondrop' in div) && 'FormData' in window && 'FileReader' in window;
     };
 
-    this.onChange = function (event) {
-      _this.boxEl.classList.add('is-dropped');
+    _this.onChange = function (event) {
+      if (!SimpleDropit.isFiles(event)) {
+        return;
+      }
 
       SimpleDropit.showFiles(_this.filenameEl, event.target.files);
+
+      _this.boxEl.classList.add('is-dropped');
     };
 
-    this.dragIn = function (event) {
+    _this.dragIn = function (event) {
+      // Check the dragged elements are Files
+      if (!SimpleDropit.isFiles(event)) {
+        return;
+      }
+
       if (!hasClass(_this.boxEl, 'is-dragover')) _this.boxEl.classList.add('is-dragover');
     };
 
-    this.dragOut = function (event) {
+    _this.dragOut = function (event) {
+      // Check the dragged elements are Files
+      if (!SimpleDropit.isFiles(event)) {
+        return;
+      }
+
       if (hasClass(_this.boxEl, 'is-dragover')) _this.boxEl.classList.remove('is-dragover');
     };
 
-    this.drop = function (event) {
-      _this.boxEl.classList.add('is-dropped');
+    _this.drop = function (event) {
+      // Check the dropped elements are Files
+      if (!SimpleDropit.isFiles(event)) {
+        return;
+      }
 
       _this.droppedFiles = event.dataTransfer.files;
       SimpleDropit.showFiles(_this.filenameEl, _this.droppedFiles);
+
+      _this.boxEl.classList.add('is-dropped');
     };
 
-    this.preventEventPropagation = function (event) {
+    _this.preventEventPropagation = function (event) {
       event.preventDefault();
       event.stopPropagation();
     };
 
     try {
       if (typeof selector === 'string') {
-        throw new Error('Invalid Element Object.');
+        throw new Error('Invalid Element Object');
       } else if (typeof selector === 'object' && selector !== null) {
-        this.el = selector;
+        _this.el = selector;
       } else {
-        throw new Error('Element Object does not exists.');
+        throw new Error('Element Object does not exists');
       }
     } catch (error) {
       console.error(error.name + ': ' + error.message);
-      return;
+      return _assertThisInitialized(_this);
     }
 
-    this.options = _extends({}, SimpleDropit.defaultOptions, options);
-    this.classNames = _extends({}, SimpleDropit.defaultOptions.classNames, this.options.classNames);
+    _this.options = _extends({}, SimpleDropit.defaultOptions, options);
+    _this.classNames = _extends({}, SimpleDropit.defaultOptions.classNames, _this.options.classNames);
 
-    if (SimpleDropit.instances.has(this.el)) {
-      return;
+    if (SimpleDropit.instances.has(_this.el)) {
+      return _assertThisInitialized(_this);
     }
 
-    this.init();
+    _this.init();
+
+    return _this;
   }
 
   var _proto = SimpleDropit.prototype;
@@ -188,11 +257,18 @@ var SimpleDropit = /*#__PURE__*/function () {
   };
 
   SimpleDropit.showFiles = function showFiles(el, files) {
-    el.innerText = files.length > 1 ? files.length + ' files selected / ' : files[0].name + ' / ';
+    var fileName = files[0].name;
+
+    if (fileName !== '' && fileName !== undefined) {
+      el.innerText = files.length > 1 ? files.length + ' files selected / ' : fileName + ' / ';
+      return true;
+    } else {
+      return false;
+    }
   };
 
   return SimpleDropit;
-}();
+}(SimpleDropitMethods);
 
 SimpleDropit.instances = new WeakMap();
 SimpleDropit.defaultOptions = {
