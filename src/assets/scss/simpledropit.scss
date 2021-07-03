@@ -1,19 +1,22 @@
 @import 'variables';
 
-.sdd-file-input-hide {
+.sd-hide {
     position: absolute;
+    width: 0;
+    height: 0;
+    z-index: -1;
     opacity: 0;
-    visibility: hidden;;
+    visibility: hidden;
 }
 
-.sdd-box-dragndrop,
-.sdd-box-uploading,
-.sdd-box-success,
-.sdd-box-error {
+.sd-box-dragndrop,
+.sd-box-uploading,
+.sd-box-success,
+.sd-box-error {
     display: none;
 }
 
-.sdd-input-file-box {
+.sd-box {
     background-color: #ffffff;
     position: relative;
     padding: 25px 20px;
@@ -25,12 +28,15 @@
 
     input[type="file"] {
         position: absolute;
+        width: 0;
+        height: 0;
         z-index: -1;
         opacity: 0;
+        visibility: hidden;
     }
 }
 
-.sdd-input-file-label {
+.sd-label {
     font-family: inherit;
     font-size: inherit;
 
@@ -47,7 +53,7 @@
     }
 }
 
-.sdd-input-file-box {
+.sd-box {
     // .has-advanced-upload {
         // background-color: transparent;
         // outline: 2px dashed black;
@@ -59,25 +65,25 @@
         outline-offset: -10px;
     }
 
-    &.is-uploading .sdd-input-file-box-wrapper {
+    &.is-uploading .sd-box-wrapper {
         visibility: none;
     }
-    &.is-uploading .sdd-box-uploading {
+    &.is-uploading .sd-box-uploading {
         display: block;
     }
 }
-.sdd-input-file-box.sdd-advanced-upload {
-    .sdd-box-browse-file {
+.sd-box.sd-advanced-upload {
+    .sd-box-browse-file {
         display: none;
     }
 
-    .sdd-box-dragndrop {
+    .sd-box-dragndrop {
         display: inline;
     }
 
     &.is-dropped {
         border-color: $themeColor;
-        .sdd-box-dragndrop {
+        .sd-box-dragndrop {
             display: none;
         }
     }
