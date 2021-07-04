@@ -30,30 +30,31 @@
                     </aside>
                 </div>
                 <div class="col-md-8 col-lg-9">
-                    <div id="usage">
-                        <h3 class="mt-4 sd-s-title">Usage<a href="#usage" class="ps-2 link-secondary card-link"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
-                            <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
-                            <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
-                          </svg></a></h3>
-                        <p>You can install SimpleDropit plugin by including the following stylesheet and javascript:</p>
-                        <pre class="sd-code-snippets"><code class="html">&lt;link rel="stylesheet" href="dist/css/simpledropit.min.css"&gt;
+                    <div class="wrapper">
+                        <div id="usage">
+                            <h3 class="mt-4 sd-s-title">Usage<a href="#usage" class="ps-2 link-secondary card-link"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+                                <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+                                <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+                            </svg></a></h3>
+                            <p>You can install SimpleDropit plugin by including the following stylesheet and javascript:</p>
+                            <pre class="sd-code-snippets"><code class="html">&lt;link rel="stylesheet" href="dist/css/simpledropit.min.css"&gt;
 &lt;script src="dist/js/simpledropit.min.js">&lt;/script&gt;</code></pre>
-                    </div>
-                    <div id="example">
-                        <h3 class="mt-4 sd-s-title">Example<a href="#example" class="ps-2 link-secondary card-link"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
-                            <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
-                            <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
-                          </svg></a></h3>
-                        <p>Just call <code>new SimpleDropit(ELEMENT)</code> on the file-select input element.</code></p>
-                        <p>Your input field will be</p>
-                        <pre class="sd-code-snippets"><code class="html">&lt;input type="file" name="files[]" id="myInput" multiple&gt;</code></pre>
-                        <p>And you start SimpleDropit manually:</p>
-                        <pre class="sd-code-snippets"><code class="js">new SimpleDropit(document.getElementById('myInput'));</code></pre>
-                        <div class="mb-3">
-                            <input type="file" name="files[]" class="sd-fileinput" id="myInput" multiple>
                         </div>
-                        <p>Your input field html structure will be similar to this:</p>
-                        <pre class="sd-code-snippets"><button class="btn btn-outline-secondary btn-copy sd-btn-copy btn-sm" type="button">Copy</button><code class="html">&lt;div class="sd-box"&gt;
+                        <div id="example">
+                            <h3 class="mt-4 sd-s-title">Example<a href="#example" class="ps-2 link-secondary card-link"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+                                <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+                                <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+                            </svg></a></h3>
+                            <p>Just call <code>new SimpleDropit(ELEMENT)</code> on the file-select input element.</code></p>
+                            <p>Your input field will be</p>
+                            <pre class="sd-code-snippets"><code class="html">&lt;input type="file" name="files[]" id="myInput" multiple&gt;</code></pre>
+                            <p>And you start SimpleDropit manually:</p>
+                            <pre class="sd-code-snippets"><code class="js">new SimpleDropit(document.getElementById('myInput'));</code></pre>
+                            <div class="mb-3">
+                                <input type="file" name="files[]" class="sd-fileinput" id="myInput" multiple>
+                            </div>
+                            <p>Your input field html structure will be similar to this:</p>
+                            <pre class="sd-code-snippets"><code class="html">&lt;div class="sd-box"&gt;
     &lt;div class="sd-box-wrapper"&gt;
         &lt;div class="sd-label"&gt;
             &lt;span class="sd-box-dragndrop"&gt;Drop file here /&nbsp;&lt;/span&gt;
@@ -63,8 +64,8 @@
         &lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;</code></pre>
-                        <p>You can also use the html structure in your code and call SimpleDropit.</p>
-                        <pre class="sd-code-snippets"><code class="html">&lt;div class="sd-box"&gt;
+                            <p>You can also use the html structure in your code and call SimpleDropit.</p>
+                            <pre class="sd-code-snippets"><code class="html">&lt;div class="sd-box"&gt;
     &lt;div class="sd-box-wrapper"&gt;
         &lt;div class="sd-label"&gt;
             &lt;span class="sd-box-dragndrop"&gt;Drop file here /&nbsp;&lt;/span&gt;
@@ -79,32 +80,33 @@
     new SimpleDropit(document.getElementById('myInput2'));
 &lt;/script&gt;
 </code></pre>
-                        <div class="mb-3">
-                            <div class="sd-box">
-                                <div class="sd-box-wrapper">
-                                    <div class="sd-label">
-                                        <span class="sd-box-dragndrop">Drop file here /&nbsp;</span>
-                                        <span class="sd-box-file-name"></span>
-                                        <label class="sd-label">Browse <span class="sd-box-browse-file">File</span></label>
-                                        <input type="file" name="files[]" id="myInput2" multiple>
+                            <div class="mb-3">
+                                <div class="sd-box">
+                                    <div class="sd-box-wrapper">
+                                        <div class="sd-label">
+                                            <span class="sd-box-dragndrop">Drop file here /&nbsp;</span>
+                                            <span class="sd-box-file-name"></span>
+                                            <label class="sd-label">Browse <span class="sd-box-browse-file">File</span></label>
+                                            <input type="file" name="files[]" id="myInput2" multiple>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                            <p>If you want to use jQuery:</p>
+                            <pre class="sd-code-snippets"><code class="js">new SimpleDropit($('#myInput')[0]);</code></pre>
+                            <hr class="my-4 bg-secondary"/>
                         </div>
-                        <p>If you want to use jQuery:</p>
-                        <pre class="sd-code-snippets"><code class="js">new SimpleDropit($('#myInput')[0]);</code></pre>
-                        <hr class="my-4 bg-secondary"/>
-                    </div>
-                    <div id="browser-compatibility">
-                        <h3 class="sd-s-title">Browser Compatibility<a href="#browser-compatibility" class="ps-2 link-secondary card-link"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
-                            <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
-                            <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
-                        </svg></a></h3>
-                        <p>SimpleDropit works in all modern browsers.</p>
-                        <hr class="my-4 bg-secondary"/>
-                        <h3 sd-s-title>Author</h3>
-                        <p class="lead fw-normal">Nish K - <a href="https://github.com/nishantk02" target="_blank">GitHub</a> / <a href="https://twitter.com/nishdcoder" target="_blank">Twitter</a></p>
-                        <p class="copyright">&nbsp;</p>
+                        <div id="browser-compatibility">
+                            <h3 class="sd-s-title">Browser Compatibility<a href="#browser-compatibility" class="ps-2 link-secondary card-link"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+                                <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+                                <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+                            </svg></a></h3>
+                            <p>SimpleDropit works in all modern browsers.</p>
+                            <hr class="my-4 bg-secondary"/>
+                            <h3 sd-s-title>Author</h3>
+                            <p class="lead fw-normal">Nish K - <a href="https://github.com/nishantk02" target="_blank">GitHub</a> / <a href="https://twitter.com/nishdcoder" target="_blank">Twitter</a></p>
+                            <p class="copyright">&nbsp;</p>
+                        </div>
                     </div>
                 </div>
             </div>

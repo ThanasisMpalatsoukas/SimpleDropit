@@ -48,9 +48,23 @@ a {
         right: .25rem;
         top: .25rem;
         padding: .125rem .25rem;
+        border-color: darken($light, 10%);
 
+        &:hover,
         &:focus {
             box-shadow: none;
+            background-color: darken($light, 10%);
+            color: $secondary;
+        }
+
+        &.btn-outline-success {
+            &,
+            &:hover,
+            &:focus {
+                background-color: transparent;
+                border-color: $success;
+                color: $success;
+            }
         }
     }
 

@@ -1,14 +1,32 @@
 export function execCopyCommand(el) {
-    if (document.selection) {
-        let range = document.body.createTextRange();
-        range.moveToElementText(el);
-        range.select().createTextRange();
-        return document.execCommand("copy");
-    } else if (window.getSelection) {
-        let range = document.createRange();
-        range.selectNode(el);
-        window.getSelection().addRange(range);
-        return document.execCommand("copy");
+    let r = false,
+        selected;
+    const txt = document.createElement('textarea');
+
+    txt.value = el.textContent;
+    txt.setAttribute('readonly', '');
+    txt.classList.add('sr-only');
+    
+    document.body.appendChild(txt);
+
+    if(document.getSelection) {
+        selected =
+            document.getSelection().rangeCount > 0
+                ? document.getSelection().getRangeAt(0)
+                : false;
     }
-    return false;
+
+    txt.select();
+
+    if(document.execCommand('copy')) {
+        r = true;
+    }
+    document.body.removeChild(txt);
+
+    if(selected) {
+        document.getSelection().removeAllRanges();
+        document.getSelection().addRange(selected);
+    }
+    return r;
 }
+
