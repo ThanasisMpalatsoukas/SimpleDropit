@@ -1,6 +1,4 @@
 const path = require('path');
-const webpack = require('webpack');
-const pkg = require('./package.json');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -27,7 +25,6 @@ module.exports = (env, argv) => {
         {
             mode: devMode ? 'development' : 'production',
             entry: './website/index.js',
-            devtool: 'cheap-module-source-map',
             output: {
                 filename: devMode ? 'bundle.js' : '[name].[contenthash].bundle.js',
                 path: path.resolve(__dirname, './demo')
@@ -94,7 +91,7 @@ module.exports = (env, argv) => {
             },
             plugins: plugins,
             optimization: {
-                minimize: devMode ? false : true,
+                minimize: devMode ? false : true
             }
         }
     ];
