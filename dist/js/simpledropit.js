@@ -1,5 +1,5 @@
 /**
- * SimpleDropit.js - v0.1.0
+ * SimpleDropit.js - v0.1.2
  * Drag-n-drop files, Simple for modern browsers
  * https://nishantk02.github.io/SimpleDropit
  *
@@ -293,7 +293,7 @@
       boxWrapperEl: 'sd-box-wrapper',
       browseLabelEl: 'sd-label',
       filenameEl: 'sd-box-file-name',
-      labelWrapperEl: 'sd-label',
+      labelWrapperEl: 'sd-label-wrapper',
       supportedLabelEl: 'sd-box-dragndrop'
     },
     supportedLabel: 'Drop file here /'
