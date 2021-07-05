@@ -83,11 +83,21 @@
   var SimpleDropitMethods = /*#__PURE__*/function () {
     function SimpleDropitMethods() {}
 
-    SimpleDropitMethods.isFiles = function isFiles(event) {
+    SimpleDropitMethods.isFiles = function isFiles(arg) {
       var r = false;
 
-      if (event.dataTransfer.types) {
-        event.dataTransfer.types.forEach(function (file, index) {
+      if (arg.types === undefined && arg.files) {
+        for (var _i = 0, _Object$entries = Object.entries(arg.files); _i < _Object$entries.length; _i++) {
+          var _Object$entries$_i = _Object$entries[_i];
+              _Object$entries$_i[0];
+              var file = _Object$entries$_i[1];
+
+          if (file.name !== '') {
+            r = true;
+          }
+        }
+      } else {
+        arg.types.forEach(function (file, index) {
           if (file === "Files" || file === "application/x-moz-file") {
             r = true;
           }
@@ -119,7 +129,7 @@
       };
 
       _this.onChange = function (event) {
-        if (!SimpleDropit.isFiles(event)) {
+        if (!SimpleDropit.isFiles(event.target)) {
           return;
         }
 
@@ -130,7 +140,7 @@
 
       _this.dragIn = function (event) {
         // Check the dragged elements are Files
-        if (!SimpleDropit.isFiles(event)) {
+        if (!SimpleDropit.isFiles(event.dataTransfer)) {
           return;
         }
 
@@ -139,7 +149,7 @@
 
       _this.dragOut = function (event) {
         // Check the dragged elements are Files
-        if (!SimpleDropit.isFiles(event)) {
+        if (!SimpleDropit.isFiles(event.dataTransfer)) {
           return;
         }
 
@@ -148,7 +158,7 @@
 
       _this.drop = function (event) {
         // Check the dropped elements are Files
-        if (!SimpleDropit.isFiles(event)) {
+        if (!SimpleDropit.isFiles(event.dataTransfer)) {
           return;
         }
 
@@ -278,15 +288,15 @@
 
   SimpleDropit.instances = new WeakMap();
   SimpleDropit.defaultOptions = {
-    supportedLabel: 'Drop file here /',
     classNames: {
       boxEl: 'sd-box',
       boxWrapperEl: 'sd-box-wrapper',
-      labelWrapperEl: 'sd-label',
-      supportedLabelEl: 'sd-box-dragndrop',
+      browseLabelEl: 'sd-label',
       filenameEl: 'sd-box-file-name',
-      browseLabelEl: 'sd-label'
-    }
+      labelWrapperEl: 'sd-label',
+      supportedLabelEl: 'sd-box-dragndrop'
+    },
+    supportedLabel: 'Drop file here /'
   };
 
   return SimpleDropit;
