@@ -41,7 +41,7 @@ class SimpleDropit extends SimpleDropitMethods {
     };
 
     onChange = (event) => {
-        if(!SimpleDropit.isFiles(event)) {
+        if(!SimpleDropit.isFiles(event.target)) {
             return;
         }
         SimpleDropit.showFiles(this.filenameEl, event.target.files)
@@ -50,7 +50,7 @@ class SimpleDropit extends SimpleDropitMethods {
 
     dragIn = (event) => {
         // Check the dragged elements are Files
-        if(!SimpleDropit.isFiles(event)) {
+        if(!SimpleDropit.isFiles(event.dataTransfer)) {
             return;
         }
         if(!hasClass(this.boxEl, 'is-dragover')) this.boxEl.classList.add('is-dragover');
@@ -58,7 +58,7 @@ class SimpleDropit extends SimpleDropitMethods {
 
     dragOut = (event) => {
         // Check the dragged elements are Files
-        if(!SimpleDropit.isFiles(event)) {
+        if(!SimpleDropit.isFiles(event.dataTransfer)) {
             return;
         }
         if(hasClass(this.boxEl, 'is-dragover')) this.boxEl.classList.remove('is-dragover');
@@ -66,7 +66,7 @@ class SimpleDropit extends SimpleDropitMethods {
 
     drop = (event) => {
         // Check the dropped elements are Files
-        if(!SimpleDropit.isFiles(event)) {
+        if(!SimpleDropit.isFiles(event.dataTransfer)) {
             return;
         }
         
@@ -169,15 +169,15 @@ class SimpleDropit extends SimpleDropitMethods {
     }
 
     static defaultOptions = {
-        supportedLabel: 'Drop file here /',
         classNames: {
             boxEl: 'sd-box',
             boxWrapperEl: 'sd-box-wrapper',
+            browseLabelEl: 'sd-label',
+            filenameEl: 'sd-box-file-name',
             labelWrapperEl: 'sd-label',
             supportedLabelEl: 'sd-box-dragndrop',
-            filenameEl: 'sd-box-file-name',
-            browseLabelEl: 'sd-label'
-        }
+        },
+        supportedLabel: 'Drop file here /',
     };
 }
 
