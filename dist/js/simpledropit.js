@@ -1,5 +1,5 @@
 /**
- * SimpleDropit.js - v0.1.2
+ * SimpleDropit.js - v0.1.1
  * Drag-n-drop files, Simple for modern browsers
  * https://nishantk02.github.io/SimpleDropit
  *
